@@ -9,3 +9,6 @@ player.on('timeupdate', function (e) {
 });
 
 
+// player.setCurrentTime() 
+// key : "videoplayer-current-time"
+// value : {seconds}
