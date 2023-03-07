@@ -18,7 +18,10 @@ const player = new Player(videoFrameEl, options);
 player.on('timeupdate', throttle(playedTime, 1000));
 
 //set player start-time
-player.setCurrentTime(localStorage.getItem("videoplayer-current-time"))
+if(localStorage.getItem("videoplayer-current-time") !== null){
+  player.setCurrentTime(localStorage.getItem("videoplayer-current-time"))
+}
+
 
 // callback
 function playedTime(e) {
