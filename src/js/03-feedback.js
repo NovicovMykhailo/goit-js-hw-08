@@ -46,8 +46,8 @@ function onInput(e) {
 
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 
-  formData.email = tempFormData.email;
-  formData.message = tempFormData.message;
+  formData.email = JSON.parse(localStorage.getItem('feedback-form-state')).email;
+  formData.message = JSON.parse(localStorage.getItem('feedback-form-state')).message;
 }
 
 //submit callback
