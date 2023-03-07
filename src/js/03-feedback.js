@@ -41,9 +41,11 @@ function onInput(e) {
   }
 
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
-
-  formData.email = tempFormData.email
-  formData.message = tempFormData.message
+  
+  if (localStorage.getItem('feedback-form-state')) {
+    formData.email = tempFormData.email;
+    formData.message = tempFormData.message;
+  }
 }
 
 //submit callback
