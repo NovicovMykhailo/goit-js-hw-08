@@ -4,10 +4,7 @@ const formEl = document.querySelector('form');
 const submitBtnEl = document.querySelector('button');
 const tempFormData = JSON.parse(localStorage.getItem('feedback-form-state'));
 
-let formData = {
-  message: '',
-  email: '',
-};
+
 
 formEl.addEventListener('input', throttle(onInput, 500));
 formEl.addEventListener('submit', onSubmit);
@@ -29,25 +26,25 @@ if (tempFormData) {
 }
 
 //input callback
+
 function onInput(e) {
   e.preventDefault();
+
+  let formData = {};
+
   if (localStorage.getItem('feedback-form-state') === null) {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
     return;
   }
-
-  if (e.target.name === 'email') {
-    formData.email = e.target.value;
-  }
-
-  if (e.target.name === 'message') {
-    formData.message = e.target.value;
-  }
+    formData.email= formEl[0].value
+    formData.message = formEl[1].value;
+ 
 
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 
   formData.email = JSON.parse(localStorage.getItem('feedback-form-state')).email;
   formData.message = JSON.parse(localStorage.getItem('feedback-form-state')).message;
+
 }
 
 //submit callback
